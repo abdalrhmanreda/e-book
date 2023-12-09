@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "appName": MessageLookupByLibrary.simpleMessage("E-Book"),
+        "help": MessageLookupByLibrary.simpleMessage("Help & Support"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
         "loginDesc": MessageLookupByLibrary.simpleMessage(
             "Unlock a world of literary treasures with a single login, where every word awaits to captivate your imagination in our e-book haven"),
         "loginScreenButton": MessageLookupByLibrary.simpleMessage("Login"),
@@ -36,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginScreenPass": MessageLookupByLibrary.simpleMessage("password"),
         "loginScreenTitlePartOne": MessageLookupByLibrary.simpleMessage("Log"),
         "loginScreenTitlePartTwo": MessageLookupByLibrary.simpleMessage(" In"),
+        "logout": MessageLookupByLibrary.simpleMessage("Log out"),
+        "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "onBoardingButtonText": MessageLookupByLibrary.simpleMessage("Next"),
         "onBoardingDescription1": MessageLookupByLibrary.simpleMessage(
             "Your personalized e-book sanctuary. Dive into a world of endless stories, right at your fingertips. Read Anywhere, Anytime"),
@@ -52,11 +56,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingTitle3": MessageLookupByLibrary.simpleMessage("Book Verse"),
         "otpCodeCode": MessageLookupByLibrary.simpleMessage(" OTP"),
         "otpCodeEnter": MessageLookupByLibrary.simpleMessage("Enter"),
+        "privacy": MessageLookupByLibrary.simpleMessage("Privacy & Policy"),
+        "profile": MessageLookupByLibrary.simpleMessage("My Profile"),
         "registerFullName": MessageLookupByLibrary.simpleMessage("Full name"),
         "registerScreenDescription": MessageLookupByLibrary.simpleMessage(
             "Join our literary community and unlock a world of captivating stories – sign up now to embark on your personalized e-book adventure"),
         "registerScreenHaveAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "shareApp": MessageLookupByLibrary.simpleMessage("Share App"),
         "sign": MessageLookupByLibrary.simpleMessage("Sign "),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
         "submit": MessageLookupByLibrary.simpleMessage("Verify OTP"),

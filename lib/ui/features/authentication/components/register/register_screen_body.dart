@@ -1,3 +1,8 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:e_book/config/routes/routes_path.dart';
+import 'package:e_book/core/components/animated_loading_indector.dart';
+import 'package:e_book/core/components/custom_navigatation.dart';
+import 'package:e_book/core/components/flutter_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
@@ -26,6 +31,14 @@ class RegisterScreenBody extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         // TODO: implement listener
+        if (state is CreateUserSuccessState) {
+          showToast(
+              message: 'Created account successfully',
+              state: ToastState.SUCCESS);
+          CustomNavigation.navigateByNamedTo(context, RoutePath.layout);
+        } else if (state is FailureState) {
+          showToast(message: state.error, state: ToastState.ERROR);
+        }
       },
       builder: (context, state) {
         return SingleChildScrollView(
@@ -52,22 +65,28 @@ class RegisterScreenBody extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                       const Gap(30),
-                      CustomTextFormField(
-                          isPassword: false,
-                          maxLine: 1,
-                          prefixIcon: IconlyBroken.profile,
-                          controller: nameController,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          label: S.of(context).registerFullName,
-                          validate: (value) {
-                            if (value!.isEmpty) {
-                              return "should enter ${S.of(context).registerFullName}";
-                            } else {
-                              return null;
-                            }
-                          }),
+                      Container(
+                        width: AppConstant.deviceWidth(context),
+                        height: 47.h,
+                        decoration: BoxDecoration(
+                          color: const Color(AppColors.kLoginWithGoogleColor),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: CustomTextFormField(
+                            isPassword: false,
+                            maxLine: 1,
+                            prefixIcon: IconlyBroken.profile,
+                            controller: nameController,
+                            border: InputBorder.none,
+                            label: S.of(context).registerFullName,
+                            validate: (value) {
+                              if (value!.isEmpty) {
+                                return "should enter ${S.of(context).registerFullName}";
+                              } else {
+                                return null;
+                              }
+                            }),
+                      ),
                       const Gap(20),
                       CustomTwoTextFromField(
                         controller1: emailController,
@@ -81,19 +100,28 @@ class RegisterScreenBody extends StatelessWidget {
                       ),
                       const Gap(30),
                       const Gap(20),
-                      CustomButton(
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {}
-                        },
-                        text: S.of(context).signUp,
-                        height: 37.h,
-                        color: AppColors.kPrimaryColor,
-                        width: AppConstant.deviceWidth(context),
-                        horizontal: 0,
-                        vertical: 0,
-                        radius: 10,
-                        textColor: AppColors.kWhiteColor,
-                        fontSize: 21,
+                      ConditionalBuilder(
+                        condition: state is! LoadingState,
+                        builder: (context) => CustomButton(
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              AuthCubit.get(context).userRegister(
+                                  email: emailController.text,
+                                  password: passController.text,
+                                  name: nameController.text);
+                            }
+                          },
+                          text: S.of(context).signUp,
+                          height: 37.h,
+                          color: AppColors.kPrimaryColor,
+                          width: AppConstant.deviceWidth(context),
+                          horizontal: 0,
+                          vertical: 0,
+                          radius: 10,
+                          textColor: AppColors.kWhiteColor,
+                          fontSize: 21,
+                        ),
+                        fallback: (context) => const AnimatedLoadingIndector(),
                       ),
                       const Gap(30),
                       customTextNextToTextButton(

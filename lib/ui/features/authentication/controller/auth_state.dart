@@ -16,3 +16,15 @@ class FailureState extends AuthState {
 class LoginSuccessState extends AuthState {}
 
 class RegisterSuccessState extends AuthState {}
+
+class CreateUserSuccessState extends AuthState {}
+
+class GetUserDataSuccessState extends AuthState {}
+
+class UpdateUserDataSuccessState extends AuthState {}
+
+class PickProfileImageSuccessState extends AuthState {}
+
+class UploadProfileImageSuccessState extends AuthState {}
+
+class LogoutSuccessState extends AuthState {}

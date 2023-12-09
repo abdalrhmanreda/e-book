@@ -319,6 +319,86 @@ class S {
       args: [],
     );
   }
+
+  /// `My Profile`
+  String get profile {
+    return Intl.message(
+      'My Profile',
+      name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get notifications {
+    return Intl.message(
+      'Notifications',
+      name: 'notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy & Policy`
+  String get privacy {
+    return Intl.message(
+      'Privacy & Policy',
+      name: 'privacy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help & Support`
+  String get help {
+    return Intl.message(
+      'Help & Support',
+      name: 'help',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share App`
+  String get shareApp {
+    return Intl.message(
+      'Share App',
+      name: 'shareApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log out`
+  String get logout {
+    return Intl.message(
+      'Log out',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,16 +1,17 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:e_book/core/components/animated_loading_indector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../../../core/components/progress_indector.dart';
 import '../../../../../../generated/l10n.dart';
 import '../../../../../config/colors/app_colors.dart';
 import '../../../../../config/routes/routes_path.dart';
 import '../../../../../core/components/custom_button.dart';
 import '../../../../../core/components/custom_navigatation.dart';
+import '../../../../../core/components/flutter_toast.dart';
 import '../../../../../core/constant/app_constant.dart';
 import '../../controller/auth_cubit.dart';
 import '../common/build_rich_text.dart';
@@ -25,7 +26,14 @@ class LoginScreenBody extends StatelessWidget {
     var emailController = TextEditingController();
     var passController = TextEditingController();
     return BlocConsumer<AuthCubit, AuthState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is LoginSuccessState) {
+          showToast(message: 'Login successfully', state: ToastState.SUCCESS);
+          CustomNavigation.navigateByNamedTo(context, RoutePath.layout);
+        } else if (state is FailureState) {
+          showToast(message: state.error, state: ToastState.ERROR);
+        }
+      },
       builder: (context, state) {
         return SingleChildScrollView(
           child: Center(
@@ -87,7 +95,7 @@ class LoginScreenBody extends StatelessWidget {
                                 fontSize: 22,
                               ),
                           fallback: (context) =>
-                              const CustomLoadingIndicator()),
+                              const AnimatedLoadingIndector()),
                       const Gap(10),
                       customTextNextToTextButton(
                           context: context,

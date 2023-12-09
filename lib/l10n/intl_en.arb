@@ -25,5 +25,13 @@
   "registerScreenHaveAccount" : "Already have an account",
   "otpCodeEnter": "Enter" ,
   "otpCodeCode": " OTP" ,
-  "submit": "Verify OTP"
+  "submit": "Verify OTP" ,
+  "profile" : "My Profile" ,
+  "notifications": "Notifications" ,
+  "privacy": "Privacy & Policy" ,
+  "language": "Language" ,
+  "help" : "Help & Support" ,
+  "shareApp" : "Share App" ,
+  "logout": "Log out" ,
+  "save": "Save"
 }

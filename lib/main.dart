@@ -1,6 +1,9 @@
 import 'package:e_book/config/routes/routes_path.dart';
 import 'package:e_book/core/api/dio_helper.dart';
+import 'package:e_book/ui/cubit/app_cubit.dart';
+import 'package:e_book/ui/cubit/observer/blocObserver.dart';
 import 'package:e_book/ui/features/authentication/controller/auth_cubit.dart';
+import 'package:e_book/ui/features/home/controllers/books_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,6 +22,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Bloc.observer = MyBlocObserver();
   await Hive.initFlutter();
   await HiveCache.openHive();
   DioHelper.init();
@@ -38,10 +42,15 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return SafeArea(
           child: MultiBlocProvider(
-            providers: [BlocProvider(create: (context) => AuthCubit())],
+            providers: [
+              BlocProvider(create: (context) => AuthCubit()),
+              BlocProvider(create: (context) => AppCubit()),
+              BlocProvider(
+                  create: (context) => BooksCubit()..getRecommendBooks()),
+            ],
             child: MaterialApp(
               onGenerateRoute: generateRoute,
-              initialRoute: RoutePath.onBoarding,
+              initialRoute: RoutePath.login,
               locale: const Locale('en', 'US'),
               localizationsDelegates: const [
                 S.delegate,
