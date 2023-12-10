@@ -10,13 +10,76 @@ class BooksCubit extends Cubit<BooksState> {
   BooksCubit() : super(BooksInitial());
   static BooksCubit get(context) => BlocProvider.of(context);
 
-  List<BookModel> recommend = [];
-  void getRecommendBooks() {
-    DioHelper.getData(url: ApiConstant.volumes, query: {'q': "recommend"})
-        .then((value) {
-      for (var item in value.data['items']) {
-        recommend.add(BookModel.fromJson(item));
-      }
+  List<BookModel> bestSeller = [];
+  List<BookModel> popular = [];
+  List<BookModel> topAuthor = [];
+  List<BookModel> healthy = [];
+  List<BookModel> programming = [];
+  void getBestSellerBooks() {
+    DioHelper.getData(
+        url: ApiConstant.volumes,
+        query: {'q': "best seller", 'Flitering': 'free-ebooks'}).then((value) {
+      (value.data['items']).forEach((element) {
+        bestSeller.add(BookModel.fromJson(element));
+      });
+      print(bestSeller[5].volumeInfo.title);
+      emit(SuccessState());
+    }).catchError((error) {
+      debugPrint(error.toString());
+      emit(FailureState());
+    });
+  }
+
+  void getPopularBooks() {
+    DioHelper.getData(
+        url: ApiConstant.volumes,
+        query: {'q': "popluar", 'Flitering': 'free-ebooks'}).then((value) {
+      (value.data['items']).forEach((element) {
+        popular.add(BookModel.fromJson(element));
+      });
+      print(bestSeller[5].volumeInfo.title);
+      emit(SuccessState());
+    }).catchError((error) {
+      debugPrint(error.toString());
+      emit(FailureState());
+    });
+  }
+
+  void getTopAuthorBooks() {
+    DioHelper.getData(
+        url: ApiConstant.volumes,
+        query: {'q': "top author", 'Flitering': 'free-ebooks'}).then((value) {
+      (value.data['items']).forEach((element) {
+        topAuthor.add(BookModel.fromJson(element));
+      });
+      emit(SuccessState());
+    }).catchError((error) {
+      debugPrint(error.toString());
+      emit(FailureState());
+    });
+  }
+
+  void getHealthyBooks() {
+    DioHelper.getData(
+        url: ApiConstant.volumes,
+        query: {'q': "healthy", 'Flitering': 'free-ebooks'}).then((value) {
+      (value.data['items']).forEach((element) {
+        healthy.add(BookModel.fromJson(element));
+      });
+      emit(SuccessState());
+    }).catchError((error) {
+      debugPrint(error.toString());
+      emit(FailureState());
+    });
+  }
+
+  void getProgrammingBooks() {
+    DioHelper.getData(
+        url: ApiConstant.volumes,
+        query: {'q': "programming", 'Filtering': 'free-ebooks'}).then((value) {
+      (value.data['items']).forEach((element) {
+        programming.add(BookModel.fromJson(element));
+      });
       emit(SuccessState());
     }).catchError((error) {
       debugPrint(error.toString());

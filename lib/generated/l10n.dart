@@ -399,6 +399,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Best Seller`
+  String get best {
+    return Intl.message(
+      'Best Seller',
+      name: 'best',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popular`
+  String get popular {
+    return Intl.message(
+      'Popular',
+      name: 'popular',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Top Author`
+  String get topAuthor {
+    return Intl.message(
+      'Top Author',
+      name: 'topAuthor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Healthy`
+  String get healthy {
+    return Intl.message(
+      'Healthy',
+      name: 'healthy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Programming`
+  String get programming {
+    return Intl.message(
+      'Programming',
+      name: 'programming',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

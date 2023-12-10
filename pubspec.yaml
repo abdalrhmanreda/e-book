@@ -67,6 +67,7 @@ dependencies:
   country_code_picker: ^3.0.0
   image_picker: ^1.0.4
   firebase_storage: ^11.5.5
+  chips_choice: ^3.0.1
 
 dev_dependencies:
   flutter_test:

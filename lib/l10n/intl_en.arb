@@ -33,5 +33,11 @@
   "help" : "Help & Support" ,
   "shareApp" : "Share App" ,
   "logout": "Log out" ,
-  "save": "Save"
+  "save": "Save" ,
+  "search": "Search" ,
+  "best": "Best Seller" ,
+  "popular": "Popular" ,
+  "topAuthor": "Top Author" ,
+  "healthy": "Healthy" ,
+  "programming": "Programming"
 }

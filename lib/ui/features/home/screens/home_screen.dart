@@ -1,4 +1,5 @@
 import 'package:e_book/config/colors/app_colors.dart';
+import 'package:e_book/ui/features/home/components/home_screen_body.dart';
 import 'package:e_book/ui/features/home/controllers/books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,9 +37,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          body: const Center(
-            child: Text('home'),
-          ),
+          body: const HomeScreenBody(),
         );
       },
     );

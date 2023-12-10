@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "appName": MessageLookupByLibrary.simpleMessage("E-Book"),
+        "best": MessageLookupByLibrary.simpleMessage("Best Seller"),
+        "healthy": MessageLookupByLibrary.simpleMessage("Healthy"),
         "help": MessageLookupByLibrary.simpleMessage("Help & Support"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "loginDesc": MessageLookupByLibrary.simpleMessage(
@@ -56,18 +58,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingTitle3": MessageLookupByLibrary.simpleMessage("Book Verse"),
         "otpCodeCode": MessageLookupByLibrary.simpleMessage(" OTP"),
         "otpCodeEnter": MessageLookupByLibrary.simpleMessage("Enter"),
+        "popular": MessageLookupByLibrary.simpleMessage("Popular"),
         "privacy": MessageLookupByLibrary.simpleMessage("Privacy & Policy"),
         "profile": MessageLookupByLibrary.simpleMessage("My Profile"),
+        "programming": MessageLookupByLibrary.simpleMessage("Programming"),
         "registerFullName": MessageLookupByLibrary.simpleMessage("Full name"),
         "registerScreenDescription": MessageLookupByLibrary.simpleMessage(
             "Join our literary community and unlock a world of captivating stories – sign up now to embark on your personalized e-book adventure"),
         "registerScreenHaveAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
         "shareApp": MessageLookupByLibrary.simpleMessage("Share App"),
         "sign": MessageLookupByLibrary.simpleMessage("Sign "),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
         "submit": MessageLookupByLibrary.simpleMessage("Verify OTP"),
+        "topAuthor": MessageLookupByLibrary.simpleMessage("Top Author"),
         "up": MessageLookupByLibrary.simpleMessage("up")
       };
 }

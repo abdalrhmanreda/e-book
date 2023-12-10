@@ -46,11 +46,16 @@ class MyApp extends StatelessWidget {
               BlocProvider(create: (context) => AuthCubit()),
               BlocProvider(create: (context) => AppCubit()),
               BlocProvider(
-                  create: (context) => BooksCubit()..getRecommendBooks()),
+                  create: (context) => BooksCubit()
+                    ..getBestSellerBooks()
+                    ..getPopularBooks()
+                    ..getTopAuthorBooks()
+                    ..getHealthyBooks()
+                    ..getProgrammingBooks()),
             ],
             child: MaterialApp(
               onGenerateRoute: generateRoute,
-              initialRoute: RoutePath.login,
+              initialRoute: RoutePath.layout,
               locale: const Locale('en', 'US'),
               localizationsDelegates: const [
                 S.delegate,
