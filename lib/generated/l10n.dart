@@ -519,6 +519,36 @@ class S {
       args: [],
     );
   }
+
+  /// `FAQ`
+  String get support {
+    return Intl.message(
+      'FAQ',
+      name: 'support',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact Us`
+  String get contact {
+    return Intl.message(
+      'Contact Us',
+      name: 'contact',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send`
+  String get send {
+    return Intl.message(
+      'Send',
+      name: 'send',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

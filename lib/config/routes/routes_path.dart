@@ -5,6 +5,7 @@ class RoutePath {
   static const String signUp = '/signUpScreen';
   static const String editProfile = '/editProfileScreen';
   static const String search = '/searchScreen';
+  static const String help = '/helpScreen';
 
   static const String otpCode = '/otpCodeScreen';
   static const String layout = '/layoutScreen';

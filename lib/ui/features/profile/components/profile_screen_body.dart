@@ -35,6 +35,9 @@ class ProfileScreenBody extends StatelessWidget {
         leading: const Icon(Icons.help_outline_sharp),
         title: Text(S.of(context).help),
         trailing: const Icon(IconlyBroken.arrowRight2),
+        onTap: () {
+          CustomNavigation.navigateByNamedTo(context, RoutePath.help);
+        },
       ),
       ListTile(
         leading: const Icon(IconlyBroken.send),

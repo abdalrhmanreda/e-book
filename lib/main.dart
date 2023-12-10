@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
             ],
             child: MaterialApp(
               onGenerateRoute: generateRoute,
-              initialRoute: RoutePath.layout,
+              initialRoute: RoutePath.login,
               locale: const Locale('en', 'US'),
               localizationsDelegates: const [
                 S.delegate,

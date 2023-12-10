@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "best": MessageLookupByLibrary.simpleMessage("Best Seller"),
         "buy": MessageLookupByLibrary.simpleMessage("Buy"),
         "category": MessageLookupByLibrary.simpleMessage("Category"),
+        "contact": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "healthy": MessageLookupByLibrary.simpleMessage("Healthy"),
         "help": MessageLookupByLibrary.simpleMessage("Help & Support"),
@@ -74,11 +75,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already have an account"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "send": MessageLookupByLibrary.simpleMessage("Send"),
         "shareApp": MessageLookupByLibrary.simpleMessage("Share App"),
         "sign": MessageLookupByLibrary.simpleMessage("Sign "),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
         "submit": MessageLookupByLibrary.simpleMessage("Verify OTP"),
         "summary": MessageLookupByLibrary.simpleMessage("Summary"),
+        "support": MessageLookupByLibrary.simpleMessage("FAQ"),
         "topAuthor": MessageLookupByLibrary.simpleMessage("Top Author"),
         "up": MessageLookupByLibrary.simpleMessage("up")
       };

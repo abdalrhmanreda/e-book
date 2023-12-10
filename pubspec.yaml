@@ -68,6 +68,7 @@ dependencies:
   firebase_storage: ^11.5.5
   chips_choice: ^3.0.1
   url_launcher: ^6.2.2
+  icons_plus: ^4.0.0
 
 dev_dependencies:
   flutter_test:

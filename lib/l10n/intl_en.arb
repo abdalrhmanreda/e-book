@@ -45,5 +45,8 @@
   "summary": "Summary" ,
   "preview": "Preview" ,
   "buy": "Buy" ,
-  "date" : "Date"
+  "date" : "Date" ,
+  "support": "FAQ" ,
+  "contact": "Contact Us" ,
+  "send": "Send"
 }

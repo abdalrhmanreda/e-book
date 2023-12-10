@@ -27,7 +27,7 @@ class LoginScreenBody extends StatelessWidget {
     var passController = TextEditingController();
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        if (state is LoginSuccessState) {
+        if (state is GetUserDataSuccessState) {
           showToast(message: 'Login successfully', state: ToastState.SUCCESS);
           CustomNavigation.navigateByNamedTo(context, RoutePath.layout);
         } else if (state is FailureState) {
