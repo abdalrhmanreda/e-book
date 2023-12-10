@@ -1,16 +1,16 @@
 import 'package:chips_choice/chips_choice.dart';
-import 'package:e_book/ui/features/home/components/title_and_list_view.dart';
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:e_book/ui/features/home/components/build_grid_view.dart';
+import 'package:e_book/ui/features/home/components/search_part.dart';
 import 'package:e_book/ui/features/home/controllers/books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../../../../config/colors/app_colors.dart';
-import '../../../../core/components/custom_text_form_feild.dart';
 import '../../../../core/constant/app_constant.dart';
-import '../../../../generated/l10n.dart';
+import 'build_all_books.dart';
 
 class HomeScreenBody extends StatefulWidget {
   const HomeScreenBody({super.key});
@@ -48,30 +48,16 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
           return SingleChildScrollView(
             child: Column(
               children: [
-                Container(
-                  width: AppConstant.deviceWidth(context),
-                  height: 47.h,
-                  decoration: BoxDecoration(
-                    color: const Color(AppColors.kLoginWithGoogleColor),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: CustomTextFormField(
-                    isPassword: false,
-                    maxLine: 1,
-                    border: InputBorder.none,
-                    label: S.of(context).search,
-                    type: TextInputType.emailAddress,
-                    prefixIcon: IconlyBroken.search,
-                    suffixIcon: IconlyBroken.voice,
-                    edgeInsetsGeometry: const EdgeInsets.symmetric(
-                      vertical: 12,
-                    ),
-                  ),
-                ),
+                buildSearchPart(context),
                 const Gap(5),
                 ChipsChoice<int>.single(
                   value: tag,
-                  onChanged: (val) => setState(() => tag = val),
+                  onChanged: (val) {
+                    setState(() {
+                      BooksCubit.get(context).getBooks(query: options[val]);
+                      tag = val;
+                    });
+                  },
                   choiceItems: C2Choice.listFrom<int, String>(
                     source: options,
                     value: (i, v) => i,
@@ -79,21 +65,32 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                   ),
                 ),
                 const Gap(15),
-                TitleAndListView(
-                    title: S.of(context).best,
-                    list: BooksCubit.get(context).bestSeller),
-                TitleAndListView(
-                    title: S.of(context).popular,
-                    list: BooksCubit.get(context).popular),
-                TitleAndListView(
-                    title: S.of(context).topAuthor,
-                    list: BooksCubit.get(context).topAuthor),
-                TitleAndListView(
-                    title: S.of(context).healthy,
-                    list: BooksCubit.get(context).healthy),
-                TitleAndListView(
-                    title: S.of(context).programming,
-                    list: BooksCubit.get(context).programming),
+                ConditionalBuilder(
+                  condition: state is! LoadingState,
+                  builder: (context) {
+                    if (tag == 0) {
+                      return buildAllBooks(context);
+                    } else {
+                      return BuildGridView(
+                        list: BooksCubit.get(context).queryList,
+                        shrinkWrap: true,
+                        scrollPhysics: const NeverScrollableScrollPhysics(),
+                        childAspectRatio: .61,
+                      );
+                    }
+                  },
+                  fallback: (context) => Padding(
+                    padding: EdgeInsets.only(
+                      top: AppConstant.deviceHeight(context) / 3,
+                    ),
+                    child: Center(
+                      child: LoadingAnimationWidget.fourRotatingDots(
+                        color: const Color(AppColors.kPrimaryColor),
+                        size: 55,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           );

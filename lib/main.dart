@@ -46,12 +46,12 @@ class MyApp extends StatelessWidget {
               BlocProvider(create: (context) => AuthCubit()),
               BlocProvider(create: (context) => AppCubit()),
               BlocProvider(
-                  create: (context) => BooksCubit()
-                    ..getBestSellerBooks()
-                    ..getPopularBooks()
-                    ..getTopAuthorBooks()
-                    ..getHealthyBooks()
-                    ..getProgrammingBooks()),
+                create: (context) => BooksCubit()
+                  ..getBestSellerBooks()
+                  ..getTopAuthorBooks()
+                  ..getProgrammingBooks()
+                  ..getHealthyBooks(),
+              ),
             ],
             child: MaterialApp(
               onGenerateRoute: generateRoute,

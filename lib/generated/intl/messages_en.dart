@@ -24,6 +24,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "appName": MessageLookupByLibrary.simpleMessage("E-Book"),
         "best": MessageLookupByLibrary.simpleMessage("Best Seller"),
+        "buy": MessageLookupByLibrary.simpleMessage("Buy"),
+        "category": MessageLookupByLibrary.simpleMessage("Category"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
         "healthy": MessageLookupByLibrary.simpleMessage("Healthy"),
         "help": MessageLookupByLibrary.simpleMessage("Help & Support"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
@@ -58,7 +61,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingTitle3": MessageLookupByLibrary.simpleMessage("Book Verse"),
         "otpCodeCode": MessageLookupByLibrary.simpleMessage(" OTP"),
         "otpCodeEnter": MessageLookupByLibrary.simpleMessage("Enter"),
+        "pageCount": MessageLookupByLibrary.simpleMessage("Pages"),
         "popular": MessageLookupByLibrary.simpleMessage("Popular"),
+        "preview": MessageLookupByLibrary.simpleMessage("Preview"),
         "privacy": MessageLookupByLibrary.simpleMessage("Privacy & Policy"),
         "profile": MessageLookupByLibrary.simpleMessage("My Profile"),
         "programming": MessageLookupByLibrary.simpleMessage("Programming"),
@@ -73,6 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sign": MessageLookupByLibrary.simpleMessage("Sign "),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
         "submit": MessageLookupByLibrary.simpleMessage("Verify OTP"),
+        "summary": MessageLookupByLibrary.simpleMessage("Summary"),
         "topAuthor": MessageLookupByLibrary.simpleMessage("Top Author"),
         "up": MessageLookupByLibrary.simpleMessage("up")
       };

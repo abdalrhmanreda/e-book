@@ -142,7 +142,7 @@ class EditProfileScreenBody extends StatelessWidget {
                   textColor: AppColors.kWhiteColor,
                   horizontal: 15,
                   vertical: 15,
-                )
+                ),
               ],
             ),
           ),

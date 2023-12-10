@@ -1,4 +1,3 @@
-import 'book_model.dart';
 import 'images_links.dart';
 
 class VolumeInfo {
@@ -8,15 +7,12 @@ class VolumeInfo {
   String? publisher;
   String? publishedDate;
   String? description;
-  List<IndustryIdentifiers>? industryIdentifiers;
-  ReadingModes? readingModes;
   int? pageCount;
   String? printType;
   List<dynamic>? categories;
   String? maturityRating;
   bool? allowAnonLogging;
   String? contentVersion;
-  PanelizationSummary? panelizationSummary;
   late ImageLinks imageLinks;
   String? language;
   String? previewLink;
@@ -30,15 +26,12 @@ class VolumeInfo {
       this.publisher,
       this.publishedDate,
       this.description,
-      this.industryIdentifiers,
-      this.readingModes,
       this.pageCount,
       this.printType,
       this.categories,
       this.maturityRating,
       this.allowAnonLogging,
       this.contentVersion,
-      this.panelizationSummary,
       required this.imageLinks,
       this.language,
       this.previewLink,
@@ -52,24 +45,14 @@ class VolumeInfo {
     publisher = json['publisher'];
     publishedDate = json['publishedDate'];
     description = json['description'];
-    if (json['industryIdentifiers'] != null) {
-      industryIdentifiers = <IndustryIdentifiers>[];
-      json['industryIdentifiers'].forEach((v) {
-        industryIdentifiers!.add(IndustryIdentifiers.fromJson(v));
-      });
-    }
-    readingModes = json['readingModes'] != null
-        ? ReadingModes.fromJson(json['readingModes'])
-        : null;
+
     pageCount = json['pageCount'];
     printType = json['printType'];
     categories = (json['categories'] as List<dynamic>?)?.cast<String>();
     maturityRating = json['maturityRating'];
     allowAnonLogging = json['allowAnonLogging'];
     contentVersion = json['contentVersion'];
-    panelizationSummary = json['panelizationSummary'] != null
-        ? PanelizationSummary.fromJson(json['panelizationSummary'])
-        : null;
+
     imageLinks = ImageLinks.fromJson(json['imageLinks']);
     language = json['language'];
     previewLink = json['previewLink'];
@@ -85,25 +68,16 @@ class VolumeInfo {
     data['publisher'] = publisher;
     data['publishedDate'] = publishedDate;
     data['description'] = description;
-    if (industryIdentifiers != null) {
-      data['industryIdentifiers'] =
-          industryIdentifiers!.map((v) => v.toJson()).toList();
-    }
-    if (readingModes != null) {
-      data['readingModes'] = readingModes!.toJson();
-    }
+
     data['pageCount'] = pageCount;
     data['printType'] = printType;
     data['categories'] = categories;
     data['maturityRating'] = maturityRating;
     data['allowAnonLogging'] = allowAnonLogging;
     data['contentVersion'] = contentVersion;
-    if (panelizationSummary != null) {
-      data['panelizationSummary'] = panelizationSummary!.toJson();
-    }
-    if (imageLinks != null) {
-      data['imageLinks'] = imageLinks!.toJson();
-    }
+
+    data['imageLinks'] = imageLinks.toJson();
+
     data['language'] = language;
     data['previewLink'] = previewLink;
     data['infoLink'] = infoLink;

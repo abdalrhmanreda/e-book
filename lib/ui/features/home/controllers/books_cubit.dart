@@ -15,27 +15,15 @@ class BooksCubit extends Cubit<BooksState> {
   List<BookModel> topAuthor = [];
   List<BookModel> healthy = [];
   List<BookModel> programming = [];
+  List<BookModel> queryList = [];
   void getBestSellerBooks() {
+    emit(LoadingState());
+
     DioHelper.getData(
         url: ApiConstant.volumes,
         query: {'q': "best seller", 'Flitering': 'free-ebooks'}).then((value) {
       (value.data['items']).forEach((element) {
         bestSeller.add(BookModel.fromJson(element));
-      });
-      print(bestSeller[5].volumeInfo.title);
-      emit(SuccessState());
-    }).catchError((error) {
-      debugPrint(error.toString());
-      emit(FailureState());
-    });
-  }
-
-  void getPopularBooks() {
-    DioHelper.getData(
-        url: ApiConstant.volumes,
-        query: {'q': "popluar", 'Flitering': 'free-ebooks'}).then((value) {
-      (value.data['items']).forEach((element) {
-        popular.add(BookModel.fromJson(element));
       });
       print(bestSeller[5].volumeInfo.title);
       emit(SuccessState());
@@ -79,6 +67,22 @@ class BooksCubit extends Cubit<BooksState> {
         query: {'q': "programming", 'Filtering': 'free-ebooks'}).then((value) {
       (value.data['items']).forEach((element) {
         programming.add(BookModel.fromJson(element));
+      });
+      emit(SuccessState());
+    }).catchError((error) {
+      debugPrint(error.toString());
+      emit(FailureState());
+    });
+  }
+
+  void getBooks({required String query}) {
+    queryList = [];
+    emit(LoadingState());
+    DioHelper.getData(
+        url: ApiConstant.volumes,
+        query: {'q': "$query", 'Filtering': 'free-ebooks'}).then((value) {
+      (value.data['items']).forEach((element) {
+        queryList.add(BookModel.fromJson(element));
       });
       emit(SuccessState());
     }).catchError((error) {

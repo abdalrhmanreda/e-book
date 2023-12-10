@@ -3,6 +3,7 @@ import 'package:e_book/ui/features/authentication/screens/login_screen/login_scr
 import 'package:e_book/ui/features/authentication/screens/register_screen/register_screen.dart';
 import 'package:e_book/ui/features/layout/screens/screens/layout_screen.dart';
 import 'package:e_book/ui/features/profile/screens/edit_profile.dart';
+import 'package:e_book/ui/features/search/screens/search_screen.dart';
 import 'package:e_book/ui/features/splash_screen/screens/on_boarding_screen.dart';
 import 'package:e_book/ui/features/splash_screen/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -21,5 +22,7 @@ Route? generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const LayoutScreen());
     case RoutePath.editProfile:
       return MaterialPageRoute(builder: (_) => const EditProfileScreen());
+    case RoutePath.search:
+      return MaterialPageRoute(builder: (_) => const SearchScreen());
   }
 }

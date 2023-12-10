@@ -39,5 +39,11 @@
   "popular": "Popular" ,
   "topAuthor": "Top Author" ,
   "healthy": "Healthy" ,
-  "programming": "Programming"
+  "programming": "Programming" ,
+  "pageCount": "Pages" ,
+  "category": "Category" ,
+  "summary": "Summary" ,
+  "preview": "Preview" ,
+  "buy": "Buy" ,
+  "date" : "Date"
 }

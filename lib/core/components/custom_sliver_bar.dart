@@ -1,3 +1,4 @@
+import 'package:e_book/config/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_flexible_space.dart';
@@ -20,7 +21,7 @@ class CustomSliverAppBar extends StatelessWidget {
           bottomLeft: Radius.circular(15),
         ),
       ),
-      backgroundColor: const Color(0xff303030),
+      backgroundColor: const Color(AppColors.kPrimaryColor),
       leading: IconButton(
         onPressed: () {
           Navigator.pop(context);

@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../core/constant/app_constant.dart';
+import '../../book_details/screens/book_details.dart';
 
 class TitleAndListView extends StatelessWidget {
   const TitleAndListView({
@@ -50,7 +51,10 @@ class TitleAndListView extends StatelessWidget {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) => InkWell(
-              onTap: () {},
+              onTap: () {
+                CustomNavigation.navigateTo(
+                    context, BookDetailsScreen(bookModel: list[index]));
+              },
               child: SizedBox(
                 width: AppConstant.deviceWidth(context) / 2.8,
                 child: Column(
