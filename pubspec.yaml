@@ -69,6 +69,7 @@ dependencies:
   chips_choice: ^3.0.1
   url_launcher: ^6.2.2
   icons_plus: ^4.0.0
+  swipe_to: ^1.0.5
 
 dev_dependencies:
   flutter_test:

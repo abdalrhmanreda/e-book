@@ -8,9 +8,12 @@ class CustomSliverAppBar extends StatelessWidget {
     super.key,
     required this.image,
     required this.height,
+    required this.onPressed,
   });
   final String image;
   final double height;
+  final VoidCallback onPressed;
+
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -21,7 +24,7 @@ class CustomSliverAppBar extends StatelessWidget {
           bottomLeft: Radius.circular(15),
         ),
       ),
-      backgroundColor: const Color(AppColors.kPrimaryColor),
+      backgroundColor: const Color(AppColors.kScaffoldBackGroundColor),
       leading: IconButton(
         onPressed: () {
           Navigator.pop(context);
@@ -34,6 +37,7 @@ class CustomSliverAppBar extends StatelessWidget {
       ),
       expandedHeight: height,
       flexibleSpace: CustomFlexibleSpaceBar(
+        onPressed: onPressed,
         image: image,
       ),
     );

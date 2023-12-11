@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_book/core/components/custom_navigatation.dart';
 import 'package:e_book/ui/features/book_details/screens/book_details.dart';
+import 'package:e_book/ui/features/library/controller/lib_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:gap/gap.dart';
@@ -66,7 +67,9 @@ class BuildGridView extends StatelessWidget {
                   ),
                   IconButton(
                     icon: const Icon(IconlyBroken.heart),
-                    onPressed: () {},
+                    onPressed: () {
+                      LibCubit.get(context).addToFav(bookModel: list[index]);
+                    },
                   ),
                 ],
               ),

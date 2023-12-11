@@ -2,7 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_book/config/colors/app_colors.dart';
 import 'package:e_book/ui/features/book_details/screens/book_details.dart';
 import 'package:e_book/ui/features/home/models/book_model.dart';
+import 'package:e_book/ui/features/library/controller/lib_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../core/components/custom_navigatation.dart';
@@ -57,13 +59,26 @@ InkWell buildSearchListViewItem({
                   ),
             ),
             const Gap(5),
-            Text(
-              bookModel.volumeInfo.authors?.first.toString() ?? ' ',
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    color: const Color(AppColors.kGreyColor),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    bookModel.volumeInfo.authors?.first.toString() ?? ' ',
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          color: const Color(AppColors.kGreyColor),
+                        ),
                   ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    LibCubit.get(context).addToFav(bookModel: bookModel);
+                  },
+                  icon: const Icon(IconlyBroken.heart),
+                ),
+              ],
             ),
           ],
         )),

@@ -3,6 +3,7 @@ import 'package:e_book/core/components/custom_sliver_bar.dart';
 import 'package:e_book/core/components/custom_sliver_to_box_adapter.dart';
 import 'package:e_book/core/constant/app_constant.dart';
 import 'package:e_book/ui/features/home/models/book_model.dart';
+import 'package:e_book/ui/features/library/controller/lib_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -20,6 +21,9 @@ class BookDetailsScreen extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(slivers: [
         CustomSliverAppBar(
+            onPressed: () {
+              LibCubit.get(context).addToFav(bookModel: bookModel);
+            },
             image: bookModel.volumeInfo.imageLinks.smallThumbnail,
             height: AppConstant.deviceHeight(context) / 2.5),
         CustomSliverToBoxAdapter(

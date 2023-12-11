@@ -4,6 +4,7 @@ import 'package:e_book/ui/cubit/app_cubit.dart';
 import 'package:e_book/ui/cubit/observer/blocObserver.dart';
 import 'package:e_book/ui/features/authentication/controller/auth_cubit.dart';
 import 'package:e_book/ui/features/home/controllers/books_cubit.dart';
+import 'package:e_book/ui/features/library/controller/lib_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
             providers: [
               BlocProvider(create: (context) => AuthCubit()),
               BlocProvider(create: (context) => AppCubit()),
+              BlocProvider(create: (context) => LibCubit()..getFav()),
               BlocProvider(
                 create: (context) => BooksCubit()
                   ..getBestSellerBooks()
@@ -55,7 +57,7 @@ class MyApp extends StatelessWidget {
             ],
             child: MaterialApp(
               onGenerateRoute: generateRoute,
-              initialRoute: RoutePath.login,
+              initialRoute: RoutePath.onBoarding,
               locale: const Locale('en', 'US'),
               localizationsDelegates: const [
                 S.delegate,
